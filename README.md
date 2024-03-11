@@ -31,15 +31,25 @@ This playground contains a basic set-up to interact with the data using [Jupyter
 
 
 ## Usage
+
+### Directly from sources (recommended)
 1. Have a local clone of this repository.
 2. Run `poetry install` in the root directory.
 3. Either:
-    - navigate to the `notebooks` directory and run the jupyter server `poetry run jupyter notebook` 
+    - navigate to the `notebooks` directory and run the jupyter server `poetry run jupyter notebook` and go to the notebook in your browser
     - navigate to one of the notebook files (`.ipynb`) in the `notebooks` directory from your IDE directly
 4. Make sure the notebook uses the virtual environment created by poetry.
 5. Configure your database URL in the notebook code.
 6. Run the notebook.
 7. Start exploring the data in your own notebooks!
+
+
+### From container image
+We don't publish this image to a registry yet, but the quickest way to build and run on your own computer:
+1. Have a local clone of this repository.
+2. Build the image `docker build . --progress plain -t devlake-playground:local`.
+3. Run the container `docker run -p 8888:8888 docker.io/library/devlake-playground:local --allow-root`.
+4. Open [127.0.0.1:8888](http://127.0.0.1:8888) in your browser and run one of the notebooks - you might need to change the database URL first.
 
 
 ## Create your own Jupyter Notebook
